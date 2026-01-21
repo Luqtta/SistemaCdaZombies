@@ -1,0 +1,302 @@
+#=====================================================#
+# PLUGIN: SistemaCdaZombies
+# Desenvolvido por Avelar!
+#=====================================================#
+
+Debug: false
+
+BlacklistWorlds:
+  - "Spawn"
+  - "Horda"
+
+Notifications:
+  KillRewardMessage: true
+
+ApplyOnSpawn: true
+
+#=====================================================#
+# BROADCAST
+#=====================================================#
+Broadcast:
+  Prefix: "&a[ZOMBIE]&r "
+
+  BossDeath: "&a{player} matou o zumbi &5Boss&a!"
+  LegendaryDeath: "&a{player} matou o zumbi &6Lendario&a"
+
+  Transform: "&f{player} transformou um zumbi em {to}&f"
+
+  Sounds:
+    BossDeath: "LEVEL_UP"
+    LegendaryDeath: "WITHER_DEATH"
+    Transform: "AMBIENCE_THUNDER"
+
+#=====================================================#
+# MADRUGADA DO TERROR
+#=====================================================#
+Madrugada:
+  Enabled: true
+  StartHour: 0
+  EndHour: 6
+
+  Prefix: "&c&l[MADRUGADA]&r "
+
+  StartBroadcast: |-
+    &c&l                 MADRUGADA DO TERROR ATIVADO!
+    &e            Zumbis ficarao mais fortes e droparao ITENS ESPECIAIS
+    &e                   Explore ate as 6 da manha!
+
+  EndBroadcast: |-
+    &a&l                 MADRUGADA DO TERROR FINALIZADO!
+    &7                  O spawn e os drops voltaram ao normal.
+
+  ReminderMinutes: 1
+  ReminderBroadcast: |-
+    &c&l                 MADRUGADA DO TERROR ATIVA!
+    &e            Explore o mapa para encontrar hordas e lendarios.
+
+  Sound:
+    Enabled: true
+    Name: "ENDERDRAGON_GROWL"
+    Volume: 1.0
+    Pitch: 0.1
+
+  MoneyMultiplier: 1.15
+  RareDropChanceMultiplier: 1.25
+  BossWeightMultiplier: 1.6
+  LegendaryWeightMultiplier: 4.0
+
+  Horde:
+    Enabled: true
+    ExtraSpawnChance: 0.35
+    MinExtra: 2
+    MaxExtra: 5
+    Radius: 8
+
+#=====================================================#
+# ZOMBIE FLAMEJANTE (COMBATE/VISUAL)
+#=====================================================#
+FlameZombie:
+  Enabled: true
+  Hit:
+    ApplyFireAlways: true
+    ApplyFireChance: 0.35
+  Visual:
+    Mode: "EFFECT"        # PACKET | FIRETICKS | EFFECT
+    IntervalTicks: 12
+
+#=====================================================#
+# LEVELS
+#=====================================================#
+LevelChances:
+  1: 0.55
+  2: 0.28
+  3: 0.13
+  4: 0.04
+
+Levels:
+  CD_ZOMBIE_EXPLOSIVO:
+    1: { HealthMultiplier: 1.00, ExplosionPower: 2.2 }
+    2: { HealthMultiplier: 1.15, ExplosionPower: 2.8 }
+    3: { HealthMultiplier: 1.30, ExplosionPower: 3.4 }
+    4: { HealthMultiplier: 1.50, ExplosionPower: 4.2 }
+  CD_ZOMBIE_FLAMEJANTE:
+    1: { HealthMultiplier: 1.00, FireTicks: 60, ExtraDamage: 0.5 }
+    2: { HealthMultiplier: 1.12, FireTicks: 80, ExtraDamage: 1.0 }
+    3: { HealthMultiplier: 1.25, FireTicks: 100, ExtraDamage: 1.5 }
+    4: { HealthMultiplier: 1.40, FireTicks: 120, ExtraDamage: 2.0 }
+  CD_ZOMBIE:
+    1: { HealthMultiplier: 1.00 }
+    2: { HealthMultiplier: 1.12 }
+    3: { HealthMultiplier: 1.25 }
+    4: { HealthMultiplier: 1.40 }
+
+  CD_ZOMBIE_FAST:
+    1: { HealthMultiplier: 1.00, SpeedBonusAmplifier: 0 }
+    2: { HealthMultiplier: 1.10, SpeedBonusAmplifier: 1 }
+    3: { HealthMultiplier: 1.22, SpeedBonusAmplifier: 2 }
+    4: { HealthMultiplier: 1.35, SpeedBonusAmplifier: 3 }
+
+  CD_ZOMBIE_TANK:
+    1: { HealthMultiplier: 1.00, DamageMultiplier: 1.00 }
+    2: { HealthMultiplier: 1.18, DamageMultiplier: 1.08 }
+    3: { HealthMultiplier: 1.35, DamageMultiplier: 1.16 }
+    4: { HealthMultiplier: 1.55, DamageMultiplier: 1.25 }
+
+  CD_ZOMBIE_WEAK:
+    1: { HealthMultiplier: 1.00, DamageMultiplier: 1.00 }
+    2: { HealthMultiplier: 1.15, DamageMultiplier: 1.12 }
+    3: { HealthMultiplier: 1.30, DamageMultiplier: 1.25 }
+    4: { HealthMultiplier: 1.50, DamageMultiplier: 1.40 }
+
+#=====================================================#
+# REWARDS
+#=====================================================#
+Rewards:
+  BOSS:
+    Money: 50000
+    Chance: 100.0
+    Items:
+      - "322:1 10"     
+      - "9731 64"    
+
+  CD_ZOMBIE_LENDARIO:
+    Money: 150000
+    Chance: 100.0
+    Items:
+      - "322:1 32"    
+      - "9731 128"     
+      - "278 1"        
+
+#=====================================================#
+# TRANSFORM ITEMS
+#=====================================================#
+TransformItems:
+  "9937":
+    ToZombie: "BOSS"
+    Consume: true
+    DisplayNameContains: ""
+
+  "9942":
+    ToZombie: "CD_ZOMBIE_LENDARIO"
+    Consume: true
+    DisplayNameContains: ""
+
+#=====================================================#
+# SPAWN WEIGHTS (RARIDADE)
+#=====================================================#
+SpawnWeights:
+  CD_ZOMBIE:
+    CD_ZOMBIE_EXPLOSIVO: 15
+    CD_ZOMBIE_FLAMEJANTE: 15
+    CD_ZOMBIE: 920
+    CD_ZOMBIE_FAST: 55
+    CD_ZOMBIE_TANK: 20
+    CD_ZOMBIE_WEAK: 5
+    BOSS: 2
+    CD_ZOMBIE_LENDARIO: 1
+
+  CD_ZOMBIE_FAST:
+    CD_ZOMBIE_EXPLOSIVO: 35
+    CD_ZOMBIE_FLAMEJANTE: 15
+    CD_ZOMBIE_FAST: 920
+    CD_ZOMBIE: 55
+    CD_ZOMBIE_TANK: 20
+    CD_ZOMBIE_WEAK: 5
+    BOSS: 2
+    CD_ZOMBIE_LENDARIO: 1
+
+  CD_ZOMBIE_TANK:
+    CD_ZOMBIE_EXPLOSIVO: 20
+    CD_ZOMBIE_FLAMEJANTE: 20
+    CD_ZOMBIE_TANK: 920
+    CD_ZOMBIE: 55
+    CD_ZOMBIE_FAST: 20
+    CD_ZOMBIE_WEAK: 5
+    BOSS: 2
+    CD_ZOMBIE_LENDARIO: 1
+
+  CD_ZOMBIE_WEAK:
+    CD_ZOMBIE_EXPLOSIVO: 20
+    CD_ZOMBIE_FLAMEJANTE: 20
+    CD_ZOMBIE_WEAK: 920
+    CD_ZOMBIE: 55
+    CD_ZOMBIE_FAST: 20
+    CD_ZOMBIE_TANK: 5
+    BOSS: 2
+    CD_ZOMBIE_LENDARIO: 1
+
+#=====================================================#
+# ZOMBIES
+#=====================================================#
+Zombies:
+  CD_ZOMBIE_EXPLOSIVO:
+    Nome: "&6Zombie Explosivo"
+    VidaBase: 22
+    HeadShot: true
+    Efeitos: ["1,1"]
+    DinheiroBase: 12
+    Itens:
+      - "9934 1 2"  
+      - "9944 1 2"   
+      - "9415 1 1"   
+      - "9373 1 1"   
+      - "322:1 1 0.2"  
+  CD_ZOMBIE_FLAMEJANTE:
+    Nome: "&6Zombie Flamejante"
+    VidaBase: 28
+    HeadShot: true
+    Efeitos: ["1,1"]
+    DinheiroBase: 12
+    Itens:
+      - "9934 1 1"
+      - "9944 1 1"
+      - "9415 1 1"
+      - "9373 1 1"
+      - "322:1 1 0.2"
+  CD_ZOMBIE:
+    Nome: "&eZombie Comum"
+    VidaBase: 15
+    HeadShot: true
+    Efeitos: ["1,1"]
+    DinheiroBase: 4
+    Itens:
+      - "9934 1 2"
+      - "9944 1 2"
+      - "9415 1 1"
+      - "9373 1 1"
+      - "322:1 1 0.2"
+
+  CD_ZOMBIE_FAST:
+    Nome: "&bZombie Flash"
+    VidaBase: 18
+    HeadShot: true
+    Efeitos: ["1,1"]
+    DinheiroBase: 8
+    Itens:
+      - "9934 1 2"
+      - "9944 1 2"
+      - "9415 1 1"
+      - "9373 1 1"
+      - "322:1 1 0.2"
+
+  CD_ZOMBIE_TANK:
+    Nome: "&4Zombie Tanker"
+    VidaBase: 60
+    HeadShot: false
+    Efeitos: ["5,1","11,1"]
+    DinheiroBase: 10
+    Itens:
+      - "9934 1 2"
+      - "9944 1 2"
+      - "9415 1 1"
+      - "9373 1 1"
+      - "322:1 1 0.2"
+
+  CD_ZOMBIE_WEAK:
+    Nome: "&cZombie Mortifero"
+    VidaBase: 40
+    HeadShot: false
+    Efeitos: ["1,1"]
+    DinheiroBase: 10
+    Itens:
+      - "9934 1 2"
+      - "9944 1 2"
+      - "9415 1 1"
+      - "9373 1 1"
+      - "322:1 1 0.2"
+
+  BOSS:
+    Nome: "&5Zombie Boss"
+    VidaBase: 1500
+    HeadShot: false
+    Efeitos: ["1,2","11,2"]
+    DinheiroBase: 1000
+    Itens: ["322:1 2 50"]
+
+  CD_ZOMBIE_LENDARIO:
+    Nome: "&6Zombie Lendario Supremo"
+    VidaBase: 15000
+    HeadShot: false
+    Efeitos: ["1,4","5,5","10,3","11,4","12,1"]
+    DinheiroBase: 5000
+    Itens: ["322:1 2 50"]
