@@ -125,3 +125,20 @@ Defina a licença desejada para o seu repositório (ex: MIT, GPL, etc.).
 ---
 
 Qualquer ajuste de balanceamento (vida, dano, drops, chance) é feito diretamente no `config.yml`.
+
+<img width="641" height="469" alt="image" src="https://github.com/user-attachments/assets/c9037d39-d7c3-445e-bace-9df345b27dac" />
+
+<img width="499" height="459" alt="image" src="https://github.com/user-attachments/assets/d1affb3f-aacb-4268-a5b1-9fddcc0adaa1" />
+
+<img width="894" height="602" alt="image" src="https://github.com/user-attachments/assets/a7a96433-60d0-4cab-a6c4-500be59e6f0a" />
+
+<img width="889" height="476" alt="image" src="https://github.com/user-attachments/assets/c6105f26-70a5-46e3-9ae1-88511b55f628" />
+
+<img width="762" height="553" alt="image" src="https://github.com/user-attachments/assets/e543c70e-7fac-4551-a8f6-2587cb18d270" />
+
+<img width="280" height="325" alt="image" src="https://github.com/user-attachments/assets/83954e73-ad72-4d66-be1f-7082dc792f36" />
+
+<img width="491" height="382" alt="image" src="https://github.com/user-attachments/assets/8d0f1fac-bb9a-4841-881f-f4bd639323d3" />
+
+
+
